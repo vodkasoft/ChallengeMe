@@ -52,11 +52,14 @@ var app = {
 
     login: function(){
         facebook.login(
-            function success(){
-                window.location = 'profile.html';
+            function onLoginSuccess(){
+              facebook.me(
+                function onProfileDataSuccess(){
+                    window.location = 'profile.html';
+                }
+              );
             }
         );
-        facebook.me();
     }
 };
 

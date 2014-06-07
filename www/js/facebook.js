@@ -39,15 +39,15 @@ var facebook = {
   },
 
 
-
-  me: function() {
+  me: function(callback) {
     FB.api('/me',  function(response) {
       if (response.error) {
         alert(JSON.stringify(response.error));
       } else {
-        alert('My name is:' + response.name)
+        alert('My name is:' + response.name);
         localStorage.setItem('fbUserName', response.first_name);
       }
+      callback();
 
     });
   },
@@ -62,8 +62,8 @@ var facebook = {
     FB.login(
       function(response) {
         if (response.authResponse) {
-          var access_token =   FB.getAuthResponse()['accessToken'];
 
+          var access_token = FB.getAuthResponse().accessToken;
           alert('Access Token = '+ access_token);
 
           try{
@@ -77,7 +77,7 @@ var facebook = {
           alert('not logged in');
         }
       },
-      { scope: "email,public_profile" }
+      { scope: "email,public_profile,publish_actions" }
       );
   },
 
@@ -100,7 +100,7 @@ var facebook = {
     randNum = Math.floor ( Math.random() * friendIDs.length );
 
     var friendID = friendIDs[randNum];
-    if (friendID == undefined){
+    if (friendID === undefined){
       alert('please click the me button to get a list of friends first');
     }else{
       console.log("friend id: " + friendID );
@@ -118,5 +118,4 @@ var facebook = {
     }
   }
 
-}
-
+};
