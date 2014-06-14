@@ -17,16 +17,18 @@
  * under the License.
  */
 
-var app = {
+ var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
         this.bindEvents();
+        //window.location = 'profile.html';
     },
+
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
+    bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
 
@@ -34,9 +36,9 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
+    onDeviceReady: function () {
         try {
-            FB.init({ appId: "251768321695793", nativeInterface: CDV.FB, useCachedDialogs: false });
+            FB.init({ appId: '251768321695793', nativeInterface: CDV.FB, useCachedDialogs: false });
             alert('Facebook ready!');
         } catch (e) {
             alert(e);
@@ -46,23 +48,35 @@ var app = {
                 alert('SHAKE!!!');
                 navigator.notification.vibrate(1000);
             }
-        );
+            );
         alert('App ready :)');
     },
 
-    login: function(){
+    // Facebook Login
+    //
+    // Login or auto sign-up using native Facebook integration.
+    login: function (){
         facebook.login(
-            function success(){
-                window.location = 'profile.html';
+            function onLoginSuccess(){
+                facebook.getPlayerData(
+                    function onPlayerDataSuccess(){
+                        window.location = 'profile.html';
+                    }
+                );
             }
-        );
-        facebook.me();
+            );
     }
 };
 
+// Function declaration
+
+// Logo
+//
+// Fades logo on app initialization.
 function FadeLogo(){
-    var clogo = document.getElementById("Logo");
+    var clogo = document.getElementById('Logo');
     clogo.style.opacity = 50;
 }
 
+// To be executed
 app.initialize();
