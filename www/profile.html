@@ -1,108 +1,113 @@
 <!DOCTYPE html>
 <!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
 -->
 <html>
-    <head>
-        <!--CHARTS-->
-        <script src="js/Chart.js"></script>
-        <script src="js/SentAndReceivedCharts.js"></script>
-        <style>
-            canvas{
-            }
-        </style>
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
+  <link rel="stylesheet" href="css/vendor/slidebars.min.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <title>Challenge Me!</title>
+</head>
+<body>
+  <div class="sb-slidebar sb-left" style="background-color:#131313">
+    <div id="MenuTitle">
+      <img id="MenuTitleIMG" src="img/Menu.png"/>
+    </div>
+    <div id="UserIMG">
+      <img class="UserPhoto"/>
+      <!--This one has to be added dynamically-->
+    </div>
+    <div id="UserNAME">
+      <p id="UserNameText">User</p>
+      <!--This one has to be added dynamically-->
+    </div>
+    <div id="ReceivedTextDiv">
+      <p id="ReceivedText">Received:</p>
+    </div>
+    <div id="SentTextDiv">
+      <p id="SentText">Sent:</p>
+    </div>
+    <div id="LeaderboardDiv">
+      <table id="LearderboardTable">
+        <tr>
+          <td id="LeaderboardText">Leaderboard</td>
+          <td><img id="LeaderboardCrown" src="img/Crown.png"/></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="sb-site">
+    <!-- Navigation bar -->
+    <div id="NavBar">
+      <div id="CSidebar"><img id="SidebarIMG" class="sb-toggle-left" src="img/CMenu.png"/></div>
+      <div id="Title"><img id="Profile" src="img/Profile.png"/></div>
+      <div id="Close"><img id="CloseIMG" src="img/x.png"/></div>
+    </div>
+    <div id="UserProfileImage">
+      <img class="UserPhoto"/>
+    </div>
+    <p id="UserProfileName">User</p>
+    <div id="UserReceivedChallenges">
+      <p id="ReceivedChallengesText">Received challenges:</p>
+      <div id="ReceivedChallengesGraphic">
+        <canvas id="ReceivedCanvas" height="100" width="100"></canvas>
+      </div>
+      <div id="ReceivedData">
+        <span id="ReceivedCompleted">Completed 14</span>
+        <span id="ReceivedFailed">Failed 4</span>
+        <span id="ReceivedSurrended">Surrended 3</span>
+      </div>
+    </div>
+    <div id="UserSentChallenges">
+      <p id="SentChallengesText">Sent challenges:</p>
+      <div id="SentChallengesGraphic">
+        <canvas id="SentCanvas" height="100" width="100"></canvas>
+      </div>
+      <div id="SentData">
+        <span id="SentCompleted">Completed 5</span>
+        <span id="SentFailed">Failed 1</span>
+        <span id="SentSurrended">Surrended 2</span>
+      </div>
+    </div>
+  </div>
 
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/menu.js"></script>
-        <script type="text/javascript" src="js/functions.js"></script>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" type="text/css" href="css/profile.css" />
-        <link rel="stylesheet" href="css/slidebars.min.css">
-        <link rel="stylesheet" href="css/menu.css">
-        <title>Challenge Me!</title>
-    </head>
-    <body onload="drawReceivedChart();drawSentChart();">
-        <div class="sb-slidebar sb-left" style="background-color:#131313">
-            <div id="MenuTitle">
-                <img id="MenuTitleIMG" src="img/Menu.png"/>
-            </div>
-            <div id="UserIMG" onclick="goToProfile();">
-                <img class="UserPhoto"/>
-                <!--This one has to be added dynamically-->
-            </div>
-            <div id="UserNAME">
-                <p id="UserNameText">User</p>
-                <!--This one has to be added dynamically-->
-            </div>
-            <div id="ReceivedTextDiv" onclick="goToReceived();">
-                <p id="ReceivedText">Received:</p>
-            </div>
-            <div id="SentTextDiv">
-                <p id="SentText">Sent:</p>
-            </div>
-            <div id="LeaderboardDiv">
-                <table id="LearderboardTable">
-                    <tr>
-                        <td id="LeaderboardText">Leaderboard</td>
-                        <td><img id="LeaderboardCrown" src="img/Crown.png"/></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    	<div id="sb-site" style="-webkit-box-shadow: -7px 0px 30px 0px rgba(50, 50, 50, 0.86);-moz-box-shadow:    -7px 0px 30px 0px rgba(50, 50, 50, 0.86);box-shadow:         -7px 0px 30px 0px rgba(50, 50, 50, 0.86);">
-            <div id="NavBar">
-                <div id="CSidebar"><img id="SidebarIMG" class="sb-toggle-left" src="img/CMenu.png"/></div>
-                <div id="Title"><img id="Profile" src="img/Profile.png"/></div>
-                <div id="Close"><img id="CloseIMG" src="img/x.png"/></div>
-            </div>
-            <div id="UserProfileImage">
-                <img class="UserPhoto"/>
-            </div>
-            <p id="UserProfileName">User</p>
-            <div id="UserReceivedChallenges">
-                <p id="ReceivedChallengesText">Received challenges:</p>
-                <div id="ReceivedChallengesGraphic">
-                    <canvas id="ReceivedCanvas" height="100" width="100"></canvas>
-                </div>
-                <div id="ReceivedData">
-                    <span id="ReceivedCompleted">Completed 14</span>
-                    <span id="ReceivedFailed">Failed 4</span>
-                    <span id="ReceivedSurrended">Surrended 3</span>
-                </div>
-            </div>
-            <div id="UserSentChallenges">
-                <p id="SentChallengesText">Sent challenges:</p>
-                <div id="SentChallengesGraphic">
-                    <canvas id="SentCanvas" height="100" width="100"></canvas>
-                </div>
-                <div id="SentData">
-                    <span id="SentCompleted">Completed 5</span>
-                    <span id="SentFailed">Failed 1</span>
-                    <span id="SentSurrended">Surrended 2</span>
-                </div>
-            </div>
-		</div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/slidebars.min.js"></script>
-    <script src="js/profile.js"></script>
-    </body>
+  <!-- cordova -->
+  <script src="phonegap.js"></script>
+  <!-- jQuery -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <!-- Slidebar -->
+  <script src="js/vendor/slidebars.min.js"></script>
+  <!-- Charts -->
+  <script src="js/vendor/Chart.js"></script>
+  <!-- cordova facebook plugin -->
+  <script src="js/connectivity/cdv-plugin-fb-connect.js"></script>
+  <!-- facebook sdk -->
+  <script src="js/connectivity/facebook-js-sdk.js"></script>
+  <!-- facebook -->
+  <script src="js/connectivity/facebook.js"></script>
+  <!-- Menu -->
+  <script src="js/menu.js"></script>
+  <!-- Controller -->
+  <script src="js/profile.js"></script>
+</body>
 </html>

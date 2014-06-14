@@ -1,19 +1,70 @@
-(function($) {
-    $(document).ready(function() {
-      $.slidebars();
-  });
-}) (jQuery);
+var app = {
 
+    // Application Constructor
+    initialize: function () {
+        this.bindEvents();
+        this.drawReceivedChart();
+        this.drawSentChart();
+    },
 
-try{
-    var fbToken = localStorage.getItem('fbToken');
-    var profilePictureURL = 'https://graph.facebook.com/me/picture?';
-    profilePictureURL +=    'heigth=200&width=200';
-    profilePictureURL +=    '&access_token=' + fbToken;
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function () {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
 
-    $('.UserPhoto').attr('src', profilePictureURL);
-    $('#UserProfileName').text(localStorage.fbUserName);
-    $('#UserNameText').text(localStorage.fbUserName);
-} catch (e){
-    alert('profile.js: Error: ' + e.message);
-}
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function () {
+        //$.slidebars();
+    },
+
+    confirmClose: function (){
+        if(confirm("Are you sure you want to quit?")){
+            window.location.replace("received.html");
+        }
+    },
+
+    drawReceivedChart:  function (){
+        var doughnutData = [
+        {
+            value: 14,
+            color:"#92d050"
+        },
+        {
+            value : 4,
+            color : "#ed2024"
+        },
+        {
+            value : 2,
+            color : "#2e75b6"
+        }];
+        var myDoughnut = new Chart(document.getElementById("ReceivedCanvas").getContext("2d")).Doughnut(doughnutData);
+    },
+
+    drawSentChart: function (){
+        var doughnutData = [
+        {
+            value: 5,
+            color:"#92d050"
+        },
+        {
+            value : 1,
+            color : "#ed2024"
+        },
+        {
+            value : 2,
+            color : "#2e75b6"
+        }];
+        var myDoughnut = new Chart(document.getElementById("SentCanvas").getContext("2d")).Doughnut(doughnutData);
+    }
+
+};
+
+// To be executed
+app.initialize();
+facebook.updateScore(55);

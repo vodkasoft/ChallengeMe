@@ -19,7 +19,6 @@ under the License.
 -->
 <html>
 <head>
-
   <meta charset="utf-8" />
   <meta name="format-detection" content="telephone=no" />
   <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
@@ -27,22 +26,21 @@ under the License.
   <link rel="stylesheet" type="text/css" href="css/index.css" />
   <title>Challenge Me!</title>
 </head>
-<body onload="app.initialize();">
+<body>
   <img id="Logo" src="img/index_logo.png">
   <img id="Phrase" src="img/A-puzzles-and-riddles-game.png">
   <img id="GPlus" src="img/Red-signin_Long_base_44dp.png" onclick="app.login()">
 
-
   <!-- cordova -->
   <script src="phonegap.js"></script>
   <!-- cordova facebook plugin -->
-  <script src="js/cdv-plugin-fb-connect.js"></script>
+  <script src="js/connectivity/cdv-plugin-fb-connect.js"></script>
   <!-- facebook sdk -->
-  <script src="js/facebook-js-sdk.js"></script>
+  <script src="js/connectivity/facebook-js-sdk.js"></script>
   <!-- facebook -->
-  <script src="js/facebook.js"></script>
+  <script src="js/connectivity/facebook.js"></script>
   <!-- shake -->
-  <script src="js/shake.js"></script>
+  <script src="js/motion/shake.js"></script>
   <!-- index -->
   <script src="js/index.js"></script>
 </body>
