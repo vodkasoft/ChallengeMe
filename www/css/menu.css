@@ -22,7 +22,7 @@
     text-align: center;
 }
 
-#UserPhoto{
+.UserPhoto{
     height: 100%;
     background-size: cover;
     display: inline;
@@ -114,5 +114,5 @@
 #LeaderboardCrown{
     height: 35%;
     left: 140%;
-    position: relative;    
+    position: relative;
 }

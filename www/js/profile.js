@@ -2,10 +2,7 @@ var app = {
 
     // Application Constructor
     initialize: function () {
-        this.bindEvents();
-        this.drawReceivedChart();
-        this.drawSentChart();
-    },
+        this.bindEvents();    },
 
     // Bind Event Listeners
     //
@@ -20,7 +17,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        //$.slidebars();
+
     },
 
     confirmClose: function (){
@@ -67,4 +64,6 @@ var app = {
 
 // To be executed
 app.initialize();
-facebook.updateScore(55);
+
+// Testing
+facebook.updateScore(100);

@@ -20,6 +20,9 @@
  var app = {
     // Application Constructor
     initialize: function () {
+        // Constants
+        localStorage.setItem('appId','251768321695793');
+
         this.bindEvents();
         //window.location = 'profile.html';
     },
@@ -37,12 +40,6 @@
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function () {
-        try {
-            FB.init({ appId: '251768321695793', nativeInterface: CDV.FB, useCachedDialogs: false });
-            alert('Facebook ready!');
-        } catch (e) {
-            alert(e);
-        }
         shake.startWatch(
             function onShake() {
                 alert('SHAKE!!!');
@@ -62,7 +59,7 @@
                     function onPlayerDataSuccess(){
                         window.location = 'profile.html';
                     }
-                );
+                    );
             }
             );
     }
