@@ -35,8 +35,6 @@ fi
 # Build platforms
 message_info "Building Android Platform..."
 phonegap build android && phonegap build android
-message_info "Building iOS Platform..."
-phonegap build ios && phonegap build ios
 
 # ----
 # Add Plugins
@@ -48,7 +46,7 @@ message_info "Adding Vibration Plugin..."
 phonegap plugin add org.apache.cordova.vibration
 
 message_info "Adding Facebook Connection..."
-phonegap local plugin add https://github.com/phonegap-build/FacebookConnect.git
+cordova plugin add https://github.com/phonegap-build/FacebookConnect.git --variable APP_ID="251768321695793" --variable APP_NAME="Challenge Me! - Test"
 
 
 # ----
@@ -57,8 +55,8 @@ phonegap local plugin add https://github.com/phonegap-build/FacebookConnect.git
 # Copy Facebook javascript files to www/js
 
 message_info "Copying javascript files to 'www/js'..."
-cp plugins/com.phonegap.plugins.facebookconnect/www/cdv-plugin-fb-connect.js www/connectivity/js
-cp plugins/com.phonegap.plugins.facebookconnect/www/facebook-js-sdk.js www/connectivity/js
+cp plugins/com.phonegap.plugins.facebookconnect/www/cdv-plugin-fb-connect.js www/js
+cp plugins/com.phonegap.plugins.facebookconnect/www/facebook-js-sdk.js www/js
 
 # NOTE: at plugins/com.phonegap.plugins.facebookconnect/plugin.xml replace
 # APP_ID and APP_NAME with the values from your Facebook application.

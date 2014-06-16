@@ -26,10 +26,10 @@ under the License.
   <link rel="stylesheet" type="text/css" href="css/index.css" />
   <title>Challenge Me!</title>
 </head>
-<body>
+<body class="background_gradient">
   <img id="Logo" src="img/logo_index.png">
   <img id="Phrase" src="img/A-puzzles-and-riddles-game.png">
-  <img id="GPlus" src="img/Red-signin_Long_base_44dp.png" onclick="app.login()">
+  <img id="FacebookLogin" src="img/facebook_login.png" onclick="changeLoginImage('FacebookLogin');app.login()" onmouseup="resetLoginImage('FacebookLogin');">
 
   <!-- cordova -->
   <script src="phonegap.js"></script>

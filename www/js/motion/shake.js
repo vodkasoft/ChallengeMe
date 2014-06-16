@@ -27,7 +27,7 @@ var shake = (function () {
         }
     };
 
-    shake.recordChallengeSnapshot = function (callback) {
+    shake.startWatchingChallengeSnapshot = function (callback) {
         challengeAcceleration = 0;
         navigator.accelerometer.watchAcceleration(getChallengeSnapshot, handleError, options);
         alert('Start shaking :)');

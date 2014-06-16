@@ -18,28 +18,23 @@ specific language governing permissions and limitations
 under the License.
 -->
 <html>
-
 <head>
   <meta charset="utf-8" />
   <meta name="format-detection" content="telephone=no" />
   <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="css/vendor/slidebars.min.css">
   <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/solveriddle.css" />
+  <link rel="stylesheet" href="css/createchallenge.css">
   <title>Challenge Me!</title>
 </head>
-
 <body>
-
-  <!-- Sidebar -->
-  <div class="sb-slidebar sb-left" style="background-image:url('img/Gran.png');">
+  <div class="sb-slidebar sb-left" style="background-color:#131313">
     <div id="MenuTitle">
       <img id="MenuTitleIMG" src="img/Menu.png"/>
     </div>
     <div id="UserIMG">
-      <img id="UserPhoto"/>
+      <img id="UserProfilePic" class="UserPhoto"/>
       <!--This one has to be added dynamically-->
     </div>
     <div id="UserNAME">
@@ -60,39 +55,56 @@ under the License.
         </tr>
       </table>
     </div>
+    <div id="vodkasoft">
+      <img id="vodkasoft_img" src="img/vodkasoft_foot.png"/>
+    </div>
   </div>
-  <!-- END Sidebar -->
-
-  <div id="sb-site" style="-webkit-box-shadow: -7px 0px 30px 0px rgba(50, 50, 50, 0.86);-moz-box-shadow:    -7px 0px 30px 0px rgba(50, 50, 50, 0.86);box-shadow:         -7px 0px 30px 0px rgba(50, 50, 50, 0.86);">
+  <div id="sb-site">
+    <!-- Navigation bar -->
     <div id="NavBar">
       <div id="CSidebar"><img id="SidebarIMG" class="sb-toggle-left" src="img/CMenu.png"/></div>
-      <div id="Title"><img id="SolveRiddle" src="img/SolveRiddle.png"/></div>
+      <div id="Title"><span>Create challenge</span></div>
       <div id="Close"><img id="CloseIMG" src="img/x.png"/></div>
     </div>
-    <table id="IconTable">
-      <tr>
-        <td><img style="width:30%;" src="img/riddle_icon.png"></td>  
-      </tr>
-      <tr>
-        <td>Riddle</td>
-      </tr>
-    </table>
-    <span id="DescriptionText">Guess the riddle!</span>
-    <div id="RiddleToSolve">What is black, white, black, white, red?</div>
-    <input id="InputAnswer" value="Answer" type="text"/>
-    <button id="AnswerButton">Answer</button>
-    <p id="GuessesText">Guesses remaining:</p>
-    <p id="GuessesRemainingNumber">6</p>
+
+    <div id="CreateChallengeDiv">
+      <table id="ChallengesTable">
+        <tr>
+          <td><img style="padding-right:5%" src="img/shake_icon.png"></td>
+          <td><img style="padding-left:5%;" src="img/hangman_icon.png"></td>
+        </tr>
+        <tr>
+          <td>Shake</td>
+          <td>Hangman</td>
+        </tr>
+        <tr>
+          <td colspan="2"><img style="padding-left:5%;padding-right:5%;width:50%;" src="img/riddle_icon.png"></td>
+        </tr>
+        <tr>
+          <td colspan="2">Riddle</td>
+        </tr>
+      </table>
+    </div>
+
   </div>
 
+  <!-- cordova -->
+  <script src="phonegap.js"></script>
   <!-- jQuery -->
   <script src="js/vendor/jquery.min.js"></script>
   <!-- Slidebar -->
   <script src="js/vendor/slidebars.min.js"></script>
+  <!-- Charts -->
+  <script src="js/vendor/Chart.js"></script>
+  <!-- cordova facebook plugin -->
+  <script src="js/connectivity/cdv-plugin-fb-connect.js"></script>
+  <!-- facebook sdk -->
+  <script src="js/connectivity/facebook-js-sdk.js"></script>
+  <!-- facebook -->
+  <script src="js/connectivity/facebook.js"></script>
   <!-- Menu -->
   <script src="js/menu.js"></script>
   <!-- Controller -->
-  <script src="js/solveriddle.js"></script>
-
+  <script src="js/profile.js"></script>
 </body>
 </html>

@@ -24,7 +24,6 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-image: url("../img/general_background.png");
 }
 
 img{
@@ -50,10 +49,10 @@ img{
         min-width: 60%;
     }
 
-    #GPlus{
-        width: 45%;
+    #FacebookLogin{
+        width: 65%;
         top: 63%;
-        left: 27.5%;
+        left: 17.5%;
         min-width: 20%;
         position:fixed;
     }
@@ -76,11 +75,20 @@ img{
         min-width: 20%;
     }
 
-    #GPlus{
+    #FacebookLogin{
         width: 15%;
         top: 63%;
         left: 40%;
         min-width: 20%;
         position:fixed;
     }
+}
+
+.background_gradient{
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#88baff), color-stop(100%,#a4cbff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #88baff 0%,#a4cbff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #88baff 0%,#a4cbff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #88baff 0%,#a4cbff 100%); /* IE10+ */
+    background: linear-gradient(135deg,  #88baff 0%,#a4cbff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88baff', endColorstr='#a4cbff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
