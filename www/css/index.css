@@ -24,7 +24,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#FFFFFF;
+    background-image: url("../img/general_background.png");
 }
 
 img{
@@ -35,7 +35,7 @@ img{
 @media (orientation:portrait){
     #Logo{
         width: 70%;
-        top: 35%;
+        top: 28%;
         position: fixed;
         left: 15%;
         right: 15%;
@@ -44,17 +44,25 @@ img{
 
     #Phrase{
         width: 60%;
-        top: 45%;
+        top: 47%;
         position: fixed;
         left: 20%;
         min-width: 60%;
+    }
+
+    #GPlus{
+        width: 45%;
+        top: 63%;
+        left: 27.5%;
+        min-width: 20%;
+        position:fixed;
     }
 }
 
 @media (orientation:landscape){
     #Logo{
         width: 35%;
-        top: 30%;
+        top: 18%;
         position: fixed;
         left: 32.5%;
         min-width: 35%;
@@ -62,18 +70,17 @@ img{
 
     #Phrase{
         width: 20%;
-        top: 45%;
+        top: 48%;
         position: fixed;
         left: 40%;
         min-width: 20%;
     }
-}
 
-
-#GPlus{
-    width: 20%;
-    top: 60%;
-    left: 40%;
-    min-width: 20%;
-    position:fixed  ;
+    #GPlus{
+        width: 15%;
+        top: 63%;
+        left: 40%;
+        min-width: 20%;
+        position:fixed;
+    }
 }

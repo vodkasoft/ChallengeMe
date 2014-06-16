@@ -114,5 +114,17 @@
 #LeaderboardCrown{
     height: 35%;
     left: 140%;
+    position: relative;    
+}
+
+#vodkasoft{
+    width: inherit;
+    text-align: center;
+    bottom: 3%;
+    position: fixed;
+}
+
+#vodkasoft_img{
+    width: 50%;
     position: relative;
 }
