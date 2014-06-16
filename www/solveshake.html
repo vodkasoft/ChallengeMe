@@ -27,7 +27,7 @@ under the License.
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="css/vendor/slidebars.min.css">
   <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/solveriddle.css" />
+  <link rel="stylesheet" href="css/createshake.css" />
   <title>Challenge Me!</title>
 </head>
 
@@ -66,23 +66,22 @@ under the License.
   <div id="sb-site" style="-webkit-box-shadow: -7px 0px 30px 0px rgba(50, 50, 50, 0.86);-moz-box-shadow:    -7px 0px 30px 0px rgba(50, 50, 50, 0.86);box-shadow:         -7px 0px 30px 0px rgba(50, 50, 50, 0.86);">
     <div id="NavBar">
       <div id="CSidebar"><img id="SidebarIMG" class="sb-toggle-left" src="img/CMenu.png"/></div>
-      <div id="Title"><img id="SolveRiddle" src="img/SolveRiddle.png"/></div>
+      <div id="Title"><span>Shake it!</span></div>
       <div id="Close"><img id="CloseIMG" src="img/x.png"/></div>
     </div>
     <table id="IconTable">
       <tr>
-        <td><img style="width:30%;" src="img/riddle_icon.png"></td>  
+        <td><img style="width:30%;" src="img/shake_icon.png"></td>  
       </tr>
       <tr>
-        <td>Riddle</td>
+        <td>Shake</td>
       </tr>
     </table>
-    <span id="DescriptionText">Guess the riddle!</span>
-    <div id="RiddleToSolve">What is black, white, black, white, red?</div>
-    <input id="InputAnswer" value="Answer" type="text"/>
-    <button id="AnswerButton">Answer</button>
-    <p id="GuessesText">Guesses remaining:</p>
-    <p id="GuessesRemainingNumber">6</p>
+    <span id="DescriptionText">After pressing the button, you have 5 seconds to shake the phone... Do it as faster as you can!</span>
+
+    <button id="ShakeItButton">Shake it!</button>
+    <div id="CountdownDiv"><span id="CountdownText">Stahp</span></div>
+
   </div>
 
   <!-- jQuery -->
