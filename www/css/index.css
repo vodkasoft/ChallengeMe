@@ -50,10 +50,10 @@ img{
         min-width: 60%;
     }
 
-    #GPlus{
-        width: 45%;
+    #FacebookLogin{
+        width: 55%;
         top: 63%;
-        left: 27.5%;
+        left: 22.5%;
         min-width: 20%;
         position:fixed;
     }
@@ -76,7 +76,7 @@ img{
         min-width: 20%;
     }
 
-    #GPlus{
+    #FacebookLogin{
         width: 15%;
         top: 63%;
         left: 40%;

@@ -1,0 +1,1 @@
+cordova plugin add https://github.com/phonegap-build/FacebookConnect.git --variable APP_ID="251768321695793" --variable APP_NAME="Challenge Me! - Test"
