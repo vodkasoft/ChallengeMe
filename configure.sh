@@ -57,8 +57,8 @@ phonegap local plugin add https://github.com/phonegap-build/FacebookConnect.git
 # Copy Facebook javascript files to www/js
 
 message_info "Copying javascript files to 'www/js'..."
-cp plugins/com.phonegap.plugins.facebookconnect/www/cdv-plugin-fb-connect.js www/js
-cp plugins/com.phonegap.plugins.facebookconnect/www/facebook-js-sdk.js www/js
+cp plugins/com.phonegap.plugins.facebookconnect/www/cdv-plugin-fb-connect.js www/connectivity/js
+cp plugins/com.phonegap.plugins.facebookconnect/www/facebook-js-sdk.js www/connectivity/js
 
 # NOTE: at plugins/com.phonegap.plugins.facebookconnect/plugin.xml replace
 # APP_ID and APP_NAME with the values from your Facebook application.

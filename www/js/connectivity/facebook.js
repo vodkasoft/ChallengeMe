@@ -84,11 +84,11 @@ var facebook = {
             function(response) {
                 if (response.authResponse) {
 
-                    var access_token = FB.getAuthResponse().accessToken;
-                    alert('Access Token = '+ access_token);
+                    var accessToken = FB.getAuthResponse().accessToken;
+                    alert('Access Token = '+ accessToken);
 
                     try{
-                        localStorage.setItem('fbAccessToken', access_token);
+                        localStorage.setItem('fbAccessToken', accessToken);
                     } catch (e) {
                         alert(e.message);
                     }
@@ -98,7 +98,7 @@ var facebook = {
                     alert('not logged in');
                 }
             },
-            { scope: "email,public_profile,publish_actions" }
+            { scope: "email,public_profile,publish_actions,user_friends" }
             );
     },
 
@@ -141,7 +141,7 @@ var facebook = {
 
     getPlayerData: function (callback) {
         var accessToken = localStorage.getItem('fbAccessToken');
-        //var appId = localStorage.getItem('appId');
+        alert(accessToken);
         var path = '/me/scores';
         var method = 'get';
         var params = {
@@ -152,17 +152,27 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                //alert('WORKED :) ' + JSON.stringify(response));
-                var data = response.data[0];
-                alert('Player name:' + data.user.name +  '\nScore: ' + data.score);
-                localStorage.setItem('playerName', data.user.name);
-                localStorage.setItem('playerScore', data.score);
-                callback();
+                alert('PlayerData response: ' + JSON.stringify(response));
+
+                if (response.data.length === 0){
+                    this.updateScore(0,
+                        function onUpdateSuccess () {
+                            this.getPlayerData(callback);
+                        }
+                    );
+                } else {
+                    var data = response.data[0];
+                    alert('Player name:' + data.user.name +  '\nScore: ' + data.score);
+                    localStorage.setItem('playerName', data.user.name);
+                    localStorage.setItem('playerScore', data.score);
+                    callback();
+                }
+
             }
         });
     },
 
-    updateScore: function (newScore) {
+    updateScore: function (newScore, callback) {
         var accessToken = localStorage.getItem('fbAccessToken');
         var path = '/me/scores';
         var method = 'post';
@@ -179,6 +189,9 @@ var facebook = {
                     if (response){
                         localStorage.setItem('playerScore', newScore);
                         alert('Update successful!');
+                        if (callback) {
+                            callback();
+                        }
                     } else {
                         alert('Update couldn\'t be completed.');
                     }
@@ -210,6 +223,10 @@ var facebook = {
 
     getFriends: function (callback) {
         var path = '/me/friends';
+        var method = 'get';
+        var params = {
+                       "access_token" : accessToken
+                     };
         FB.api(path, { fields: 'id' },  function(response) {
             if (response.error) {
                 alert(JSON.stringify(response.error));
@@ -222,9 +239,6 @@ var facebook = {
         });
 
     }
-
-
-
 
 };
 

@@ -4,7 +4,12 @@ var shake = (function () {
     // Update sensor data frequency
     options = { frequency: 300 },
     previousAcceleration = { x: null, y: null, z: null },
-    shakeCallBack = null;
+    shakeCallBack = null,
+
+    //
+    challengeAcceleration = null;
+
+
 
     // Start watching the accelerometer for a shake gesture
     shake.startWatch = function (onShake) {
@@ -21,6 +26,25 @@ var shake = (function () {
             watchId = null;
         }
     };
+
+    shake.startWatchingChallengeSnapshot = function (callback) {
+        challengeAcceleration = 0;
+        navigator.accelerometer.watchAcceleration(getChallengeSnapshot, handleError, options);
+        alert('Start shaking :)');
+        window.setTimeout(callback(challengeAcceleration), 5000);
+    };
+
+    // Challenge acceleration recorder
+    //
+    //
+    function getChallengeSnapshot(acceleration){
+        navigator.accelerometer.getCurrentAcceleration(
+            function onChallengeRecord() {
+                challengeAcceleration = acceleration.x + acceleration.y + acceleration.z;
+            },
+            handleError);
+    }
+
 
     // Gets the current acceleration snapshot from the last accelerometer watch
     function getAccelerationSnapshot() {
@@ -46,13 +70,13 @@ var shake = (function () {
                 x: null,
                 y: null,
                 z: null
-            }
+            };
         } else {
             previousAcceleration = {
                 x: acceleration.x,
                 y: acceleration.y,
                 z: acceleration.z
-            }
+            };
         }
     }
 

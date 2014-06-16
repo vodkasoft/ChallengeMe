@@ -4,7 +4,8 @@ var app = {
     initialize: function () {
         this.bindEvents();
         this.drawReceivedChart();
-        this.drawSentChart();    },
+        this.drawSentChart();
+    },
 
     // Bind Event Listeners
     //
@@ -69,3 +70,5 @@ app.initialize();
 
 // Testing
 facebook.updateScore(100);
+facebook.getFriends();
+facebook.getScores();
