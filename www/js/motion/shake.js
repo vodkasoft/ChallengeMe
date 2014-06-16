@@ -29,9 +29,14 @@ var shake = (function () {
 
     shake.startWatchingChallengeSnapshot = function (callback) {
         challengeAcceleration = 0;
-        navigator.accelerometer.watchAcceleration(getChallengeSnapshot, handleError, options);
-        alert('Start shaking :)');
-        window.setTimeout(callback(challengeAcceleration), 5000);
+        watchId = navigator.accelerometer.watchAcceleration(getChallengeSnapshot, handleError, options);
+        alert('Start shaking.');
+        window.setTimeout(
+            function onRecordingFinished () {
+                alert('Finished recording.');
+                shake.stopWatch();
+                callback(challengeAcceleration);
+            }, 5000);
     };
 
     // Challenge acceleration recorder
@@ -85,4 +90,5 @@ var shake = (function () {
     }
 
     return shake;
+
 })();
