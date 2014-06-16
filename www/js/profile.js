@@ -2,7 +2,10 @@ var app = {
 
     // Application Constructor
     initialize: function () {
-        this.bindEvents();    },
+        this.bindEvents();
+        this.drawReceivedChart();
+        this.drawSentChart();
+    },
 
     // Bind Event Listeners
     //
@@ -67,3 +70,5 @@ app.initialize();
 
 // Testing
 facebook.updateScore(100);
+facebook.getFriends();
+facebook.getScores();
