@@ -69,6 +69,6 @@ var app = {
 app.initialize();
 
 // Testing
-facebook.updateScore(100);
+//facebook.updateScore(100);
 facebook.getFriends();
 facebook.getScores();

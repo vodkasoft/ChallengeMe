@@ -22,7 +22,6 @@
     initialize: function () {
         // Constants
         localStorage.setItem('appId','251768321695793');
-
         this.bindEvents();
         //window.location = 'profile.html';
     },
@@ -85,5 +84,5 @@ function changeLoginImage(pID){
 
 function resetLoginImage(pID){
     var _FacebookImage = document.getElementById(pID);
-    _FacebookImage.setAttribute("src","img/facebook_login.png");   
+    _FacebookImage.setAttribute("src","img/facebook_login.png");
 }
