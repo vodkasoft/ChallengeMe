@@ -29,7 +29,6 @@ var app = {
     },
 
     drawReceivedChart:  function (){
-        alert("hola");
         var doughnutData = [
         {
             value: 14,

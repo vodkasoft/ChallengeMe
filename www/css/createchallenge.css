@@ -107,12 +107,6 @@ img{
     text-align: center;
 }
 
-#Profile{
-    height: 60%;
-    top: 20%;
-    position: relative;
-}
-
 #Close{
     width: 20%;
     left: 80%;
@@ -148,140 +142,17 @@ img{
     font-family: "Roboto-Thin";
 }
 
-#UserReceivedChallenges{
-    left: 2.5%;
-    width: 100%;
-    position: fixed;
-    height: 25%;
-    top: 41%;
+#CreateChallengeDiv{
+    position: absolute;
+    top: 13%;
+    width: 80%;
+    left: 10%;
+    height: 80%;
 }
 
-@media (orientation: portrait){
-    #ReceivedChallengesText{
-        position: relative;
-        color: #323232;
-        font-family: "Roboto-Thin";
-        font-size: 1.5em;
-        margin: 0;
-    }
-}
-
-@media (orientation: landscape){
-    #ReceivedChallengesText{
-        position: relative;
-        color: #323232;
-        font-family: "Roboto-Thin";
-        font-size: 1.5em;
-        margin: 0;
-        left: 30%;
-    }
-}
-
-#ReceivedChallengesGraphic{
-    position: relative;
-    width: 100%;
-    top: 5%;
+table{
+    font-family: "Lobster";
+    font-size: 1.5em;
+    color: #88baff;
     text-align: center;
-}
-
-#ReceivedData{
-    position: relative;
-    width: 100%;
-    top: 5%;
-    text-align: center;
-}
-
-#ReceivedCompleted{
-    font-family: "Roboto-Thin";
-    font-size: 1em;
-    color: #92d050;
-    margin: 0;
-    position: relative;
-    padding-right: 5%;
-}
-
-#ReceivedFailed{
-    font-family: "Roboto-Thin";
-    font-size: 1em;
-    color: #ed2024;
-    margin: 0;
-    position: relative;
-    padding-right: 5%;
-}
-
-#ReceivedSurrended{
-    font-family: "Roboto-Thin";
-    font-size: 1em;
-    color: #2e75b6;
-    margin: 0;
-    position: relative;
-}
-
-#UserSentChallenges{
-    width: 95%;
-    left: 2.5%;
-    position: fixed;
-    height: 25%;
-    top: 69%;
-}
-
-@media (orientation: portrait){
-    #SentChallengesText{
-        position: relative;
-        color: #323232;
-        font-family: "Roboto-Thin";
-        font-size: 1.5em;
-        margin: 0;
-    }
-}
-
-@media (orientation: landscape){
-    #SentChallengesText{
-        position: relative;
-        color: #323232;
-        font-family: "Roboto-Thin";
-        font-size: 1.5em;
-        margin: 0;
-        left: 30%;
-    }
-}
-
-#SentChallengesGraphic{
-    position: relative;
-    width: 100%;
-    top: 5%;
-    text-align: center;
-}
-
-#SentData{
-    position: relative;
-    width: 100%;
-    top: 5%;
-    text-align: center;
-}
-
-#SentCompleted{
-    font-family: "Roboto-Thin";
-    font-size: 1em;
-    color: #92d050;
-    margin: 0;
-    position: relative;
-    padding-right: 5%;
-}
-
-#SentFailed{
-    font-family: "Roboto-Thin";
-    font-size: 1em;
-    color: #ed2024;
-    margin: 0;
-    position: relative;
-    padding-right: 5%;
-}
-
-#SentSurrended{
-    font-family: "Roboto-Thin";
-    font-size: 1em;
-    color: #2e75b6;
-    margin: 0;
-    position: relative;
 }
