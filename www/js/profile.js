@@ -2,7 +2,9 @@ var app = {
 
     // Application Constructor
     initialize: function () {
-        this.bindEvents();    },
+        this.bindEvents();
+        this.drawReceivedChart();
+        this.drawSentChart();    },
 
     // Bind Event Listeners
     //
@@ -27,6 +29,7 @@ var app = {
     },
 
     drawReceivedChart:  function (){
+        alert("hola");
         var doughnutData = [
         {
             value: 14,

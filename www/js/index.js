@@ -77,3 +77,13 @@ function FadeLogo(){
 
 // To be executed
 app.initialize();
+
+function changeLoginImage(pID){
+    var _FacebookImage = document.getElementById(pID);
+    _FacebookImage.setAttribute("src","img/facebook_login_pressed.png");
+}
+
+function resetLoginImage(pID){
+    var _FacebookImage = document.getElementById(pID);
+    _FacebookImage.setAttribute("src","img/facebook_login.png");   
+}
