@@ -1,16 +1,14 @@
 /*MENU CSS*/
 #MenuTitle{
-    background-image: url('../img/general_background.png');
+    background-image: url('../img/general_background_black.png');
     height: 8%;
     width: inherit;
     position: fixed;
     text-align: center;
-}
-
-#MenuTitleIMG{
-    height: 55%;
-    top: 20%;
-    position: relative;
+    font-family: "Lobster";
+    font-size: 1.5em;
+    color: white;
+    padding-top: 2.5%;
 }
 
 /*USER DATA*/
