@@ -31,6 +31,7 @@ var shake = (function () {
         challengeAcceleration = 0;
         watchId = navigator.accelerometer.watchAcceleration(getChallengeSnapshot, handleError, options);
         alert('Start shaking.');
+        navigator.notification.vibrate(5000);
         window.setTimeout(
             function onRecordingFinished () {
                 alert('Finished recording.');

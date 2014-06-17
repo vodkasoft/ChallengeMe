@@ -41,11 +41,11 @@
     onDeviceReady: function () {
         shake.startWatch(
             function onShake() {
-                alert('SHAKE!!!');
+                alert('Easter egg #1... :P');
                 navigator.notification.vibrate(1000);
             }
             );
-        alert('App ready :)');
+        alert('App ready.');
     },
 
     // Facebook Login

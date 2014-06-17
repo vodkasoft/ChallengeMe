@@ -85,7 +85,7 @@ var facebook = {
                 if (response.authResponse) {
 
                     var accessToken = FB.getAuthResponse().accessToken;
-                    alert('Access Token = '+ accessToken);
+                    //alert('Access Token = '+ accessToken);
 
                     try{
                         localStorage.setItem('fbAccessToken', accessToken);
@@ -141,7 +141,7 @@ var facebook = {
 
     getPlayerData: function (callback) {
         var accessToken = localStorage.getItem('fbAccessToken');
-        alert(accessToken);
+        //alert(accessToken);
         var path = '/me/scores';
         var method = 'get';
         var params = {
@@ -201,6 +201,7 @@ var facebook = {
     },
 
     getScores: function (callback) {
+        alert('Getting scores...');
         var accessToken = localStorage.getItem('fbAccessToken');
         var appId = localStorage.getItem('appId');
         var path = '/' + appId + '/scores';
@@ -222,7 +223,9 @@ var facebook = {
     },
 
     getFriends: function (callback) {
+        alert('Getting friends...');
         var path = '/me/friends';
+        var accessToken = localStorage.getItem('fbAccessToken');
         var method = 'get';
         var params = {
                        "access_token" : accessToken
@@ -231,7 +234,7 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                console.log(JSON.stringify(response));
+                alert('Friends: ' + JSON.stringify(response));
                 if (callback) {
                     callback(response.data);
                 }
