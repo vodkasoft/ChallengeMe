@@ -28,6 +28,7 @@ var app = {
     },
 
     onChallengeSnapshotCaptured: function (watchedAcceleration) {
+        alert('Jhoelito :) :)');
         var challenge = {
             recipients : [], // Strings array
             data : '', // String
@@ -41,7 +42,8 @@ var app = {
     },
 
     onStartChallengeClick: function (){
-        shake.startWatchingChallengeSnapshot(this.onChallengeSnapshotCaptured);
+        alert(app.onChallengeSnapshotCaptured);
+        shake.startWatchingChallengeSnapshot(app.onChallengeSnapshotCaptured);
     }
 
 };

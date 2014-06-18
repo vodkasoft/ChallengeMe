@@ -28,6 +28,7 @@ var shake = (function () {
     };
 
     shake.startWatchingChallengeSnapshot = function (callback) {
+        alert('pinga de perro: ' + callback);
         challengeAcceleration = 0;
         watchId = navigator.accelerometer.watchAcceleration(getChallengeSnapshot, handleError, options);
         alert('Start shaking.');
@@ -36,6 +37,7 @@ var shake = (function () {
             function onRecordingFinished () {
                 alert('Finished recording.');
                 shake.stopWatch();
+                alert(callback);
                 callback(challengeAcceleration);
             }, 5000);
     };

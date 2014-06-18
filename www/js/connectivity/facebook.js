@@ -152,7 +152,7 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                alert('PlayerData response: ' + JSON.stringify(response));
+                //alert('PlayerData response: ' + JSON.stringify(response));
 
                 if (response.data.length === 0){
                     this.updateScore(0,
@@ -162,7 +162,7 @@ var facebook = {
                     );
                 } else {
                     var data = response.data[0];
-                    alert('Player name:' + data.user.name +  '\nScore: ' + data.score);
+                    //alert('Player name:' + data.user.name +  '\nScore: ' + data.score);
                     localStorage.setItem('playerName', data.user.name);
                     localStorage.setItem('playerScore', data.score);
                     callback();
@@ -214,7 +214,7 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                alert('Scores: ' + JSON.stringify(response));
+                //alert('Scores: ' + JSON.stringify(response));
                 if (callback) {
                     callback(response.data);
                 }
@@ -223,6 +223,7 @@ var facebook = {
     },
 
     getFriends: function (callback) {
+        //FB.init({ appId: '251768321695793', nativeInterface: CDV.FB, useCachedDialogs: false });
         alert('Getting friends...');
         var path = '/me/friends';
         var accessToken = localStorage.getItem('fbAccessToken');
@@ -235,7 +236,6 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                alert('Friends: ' + JSON.stringify(response));
                 if (callback) {
                     callback(response.data);
                 }
