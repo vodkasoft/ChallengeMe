@@ -75,7 +75,7 @@
                         alert('Success!');
                         facebook.getPlayerData(
                             function onPlayerDataSuccess(){
-                                window.location = 'received.html';
+                                window.location = 'selectfriends.html';
                             }
                         );
                     }
