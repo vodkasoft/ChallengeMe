@@ -22,6 +22,8 @@
     initialize: function () {
         // Constants
         localStorage.setItem('appId','251768321695793');
+        $('#FacebookLogin').click(this.login);
+        $('#FacebookLogin').mouseup(this.resetLoginImage);
         this.bindEvents();
         //window.location = 'profile.html';
     },
@@ -52,6 +54,7 @@
     //
     // Login or auto sign-up using native Facebook integration.
     login: function (){
+        this.changeLoginImage('FacebookLogin');
         facebook.login(
             function onLoginSuccess(){
                 facebook.getPlayerData(
@@ -61,7 +64,18 @@
                     );
             }
             );
+    },
+
+    changeLoginImage: function (pID){
+        var _FacebookImage = document.getElementById(pID);
+        _FacebookImage.setAttribute("src","img/facebook_login_pressed.png");
+    },
+
+    resetLoginImage: function (pID){
+        var _FacebookImage = document.getElementById(pID);
+        _FacebookImage.setAttribute("src","img/facebook_login.png");
     }
+
 };
 
 // Function declaration
@@ -77,12 +91,3 @@ function FadeLogo(){
 // To be executed
 app.initialize();
 
-function changeLoginImage(pID){
-    var _FacebookImage = document.getElementById(pID);
-    _FacebookImage.setAttribute("src","img/facebook_login_pressed.png");
-}
-
-function resetLoginImage(pID){
-    var _FacebookImage = document.getElementById(pID);
-    _FacebookImage.setAttribute("src","img/facebook_login.png");
-}
