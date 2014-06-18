@@ -23,7 +23,7 @@
         // Constants
         localStorage.setItem('appId','251768321695793');
         $('#FacebookLogin').click(this.login);
-        $('#FacebookLogin').mouseup(this.resetLoginImage);
+        //$('#FacebookLogin').mouseup(this.resetLoginImage);
         this.bindEvents();
         //window.location = 'profile.html';
     },
@@ -54,14 +54,32 @@
     //
     // Login or auto sign-up using native Facebook integration.
     login: function (){
-        this.changeLoginImage('FacebookLogin');
+        //this.changeLoginImage('FacebookLogin');
+        alert('Todo bien.');
         facebook.login(
             function onLoginSuccess(){
-                facebook.getPlayerData(
-                    function onPlayerDataSuccess(){
-                        window.location = 'profile.html';
+                var accessToken = localStorage.fbAccessToken;
+                var credentials = {
+                    clientId : 'sample',
+                    clientSecret : 'secret'
+                };
+
+                var backendAccesor = new BackendAccess();
+                backendAccesor.login(
+                    accessToken,
+                    credentials,
+                    function onResponse(error, challengeIds){
+                        if (error) {
+                            return alert(error.message);
+                        }
+                        alert('Success!');
+                        facebook.getPlayerData(
+                            function onPlayerDataSuccess(){
+                                window.location = 'received.html';
+                            }
+                        );
                     }
-                    );
+                );
             }
             );
     },
@@ -77,16 +95,6 @@
     }
 
 };
-
-// Function declaration
-
-// Logo
-//
-// Fades logo on app initialization.
-function FadeLogo(){
-    var clogo = document.getElementById('Logo');
-    clogo.style.opacity = 50;
-}
 
 // To be executed
 app.initialize();

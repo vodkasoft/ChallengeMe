@@ -36,6 +36,7 @@ var app = {
         };
         localStorage.setItem('challengeToBeSend', JSON.stringify(challenge));
         alert('Challenged saved on LS: ' + JSON.stringify(challenge));
+        window.location = 'selectfriends.html';
         // TODO: Open send challenges view
     },
 

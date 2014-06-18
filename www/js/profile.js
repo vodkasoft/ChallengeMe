@@ -70,5 +70,5 @@ app.initialize();
 
 // Testing
 //facebook.updateScore(100);
-//facebook.getFriends();
+facebook.getFriends();
 //facebook.getScores();

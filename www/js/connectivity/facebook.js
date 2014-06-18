@@ -228,9 +228,10 @@ var facebook = {
         var accessToken = localStorage.getItem('fbAccessToken');
         var method = 'get';
         var params = {
-                       "access_token" : accessToken
+                       "access_token" : accessToken,
+                       fields : 'id,name'
                      };
-        FB.api(path, { fields: 'id' },  function(response) {
+        FB.api(path, method, params,  function(response) {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
