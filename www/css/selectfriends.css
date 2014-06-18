@@ -114,11 +114,28 @@ img{
     position: relative;
 }
 
-#Close{
+#Right{
     width: 20%;
-    left: 80%;
+    right: 0%;
+    font-family: "Roboto-Regular";
+    color: white;
+    background-color: transparent;
+    font-size: 2.5em;
     height: inherit;
     position: fixed;
+    text-align: center;
+}
+
+#Right:active{
+    width: 20%;
+    right: 0%;
+    font-family: "Roboto-Regular";
+    color: white;
+    background-color: #a4cbff;
+    font-size: 2.5em;
+    height: inherit;
+    position: fixed;
+    text-align: center;
 }
 
 #CloseIMG{
