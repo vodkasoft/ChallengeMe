@@ -124,27 +124,30 @@ img{
 }
 
 #Right{
+    background-color: transparent;
     width: 20%;
     right: 0%;
-    font-family: "Roboto-Regular";
-    color: white;
-    background-color: transparent;
-    font-size: 2.5em;
-    height: inherit;
     position: fixed;
     text-align: center;
+    height: inherit;
 }
 
 #Right:active{
+    background-color: #a4cbff;
     width: 20%;
     right: 0%;
-    font-family: "Roboto-Regular";
-    color: white;
-    background-color: #a4cbff;
-    font-size: 2.5em;
-    height: inherit;
     position: fixed;
     text-align: center;
+    height: inherit;
+}
+
+#SendText{
+    padding-top: 2.5%;
+    font-size: 1.5em;
+    font-family: "Lobster";
+    color: white;
+    position: fixed;
+    right: 5%;
 }
 
 #CloseIMG{
