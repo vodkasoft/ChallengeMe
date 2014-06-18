@@ -149,6 +149,20 @@ img{
 }
 
 @media (orientation: portrait){
+    #SearchResults{
+        position: fixed;
+        top: 30%;
+        width: 80%;
+        left: 10%;
+        height: 65%;
+        overflow: scroll;
+    }
+
+    #SearchResultsTable{
+        font-family: "Roboto-Thin";
+        position: relative;
+    }
+
     #SearchDiv{
         width: 60%;
         left: 20%;
@@ -221,4 +235,8 @@ img{
     font-size: 1.5em;
     color: white;
     position: relative;
+}
+
+#FriendPhoto{
+    height: 18%;
 }
