@@ -85,8 +85,17 @@ img{
 #CSidebar{
     width: 20%;
     left: 0%;
+    background-color: transparent;
     height: inherit;
     position: fixed;
+}
+
+#CSidebar:active{
+    width: 20%;
+    left: 0%;
+    height: inherit;
+    position: fixed;
+    background-color: #a4cbff;
 }
 
 #SidebarIMG{

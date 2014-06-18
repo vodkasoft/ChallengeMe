@@ -88,6 +88,14 @@ img{
     position: fixed;
 }
 
+#CSidebar:active{
+    width: 20%;
+    left: 0%;
+    height: inherit;
+    position: fixed;
+    background-color: #a4cbff;
+}
+
 #SidebarIMG{
     height: 65%;
     top: 15%;
