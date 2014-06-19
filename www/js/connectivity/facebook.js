@@ -43,7 +43,6 @@ var facebook = {
     onDeviceReady: function () {
         try {
             FB.init({ appId: '251768321695793', nativeInterface: CDV.FB, useCachedDialogs: false });
-            alert('Facebook ready!');
         } catch (e) {
             alert(e);
         }
@@ -51,7 +50,7 @@ var facebook = {
 
     getLoginStatus: function() {
         FB.getLoginStatus(function(response) {
-            if (response.status == 'connected') {
+            if (response.status === 'connected') {
                 alert('logged in');
             } else {
                 alert('not logged in');
@@ -102,46 +101,8 @@ var facebook = {
             );
     },
 
-
-    facebookWallPost: function() {
-        console.log('Debug 1');
-        var params = {
-            method: 'feed',
-            name: 'Facebook Dialogs',
-            link: 'https://developers.facebook.com/docs/reference/dialogs/',
-            picture: 'http://fbrell.com/f8.jpg',
-            caption: 'Reference Documentation',
-            description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-        };
-        console.log(params);
-        FB.ui(params, function(obj) { console.log(obj);});
-    },
-
-    publishStoryFriend: function() {
-        randNum = Math.floor ( Math.random() * friendIDs.length );
-
-        var friendID = friendIDs[randNum];
-        if (friendID === undefined){
-            alert('please click the me button to get a list of friends first');
-        }else{
-            console.log("friend id: " + friendID );
-            console.log('Opening a dialog for friendID: ', friendID);
-            var params = {
-                method: 'feed',
-                to: friendID.toString(),
-                name: 'Facebook Dialogs',
-                link: 'https://developers.facebook.com/docs/reference/dialogs/',
-                picture: 'http://fbrell.com/f8.jpg',
-                caption: 'Reference Documentation',
-                description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
-            };
-            FB.ui(params, function(obj) { console.log(obj);});
-        }
-    },
-
     getPlayerData: function (callback) {
         var accessToken = localStorage.getItem('fbAccessToken');
-        //alert(accessToken);
         var path = '/me/scores';
         var method = 'get';
         var params = {
@@ -152,7 +113,6 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                //alert('PlayerData response: ' + JSON.stringify(response));
 
                 if (response.data.length === 0){
                     this.updateScore(0,
@@ -162,7 +122,6 @@ var facebook = {
                     );
                 } else {
                     var data = response.data[0];
-                    //alert('Player name:' + data.user.name +  '\nScore: ' + data.score);
                     localStorage.setItem('playerName', data.user.name);
                     localStorage.setItem('playerScore', data.score);
                     callback();
@@ -201,7 +160,6 @@ var facebook = {
     },
 
     getScores: function (callback) {
-        alert('Getting scores...');
         var accessToken = localStorage.getItem('fbAccessToken');
         var appId = localStorage.getItem('appId');
         var path = '/' + appId + '/scores';
@@ -214,7 +172,6 @@ var facebook = {
             if (response.error) {
                 alert(JSON.stringify(response.error));
             } else {
-                //alert('Scores: ' + JSON.stringify(response));
                 if (callback) {
                     callback(response.data);
                 }
@@ -223,8 +180,6 @@ var facebook = {
     },
 
     getFriends: function (callback) {
-        //FB.init({ appId: '251768321695793', nativeInterface: CDV.FB, useCachedDialogs: false });
-        alert('Getting friends...');
         var path = '/me/friends';
         var accessToken = localStorage.getItem('fbAccessToken');
         var method = 'get';

@@ -28,21 +28,18 @@ var app = {
     },
 
     onChallengeSnapshotCaptured: function (watchedAcceleration) {
-        alert('Jhoelito :) :)');
         var challenge = {
             recipients : [], // Strings array
-            data : '', // String
+            data : '{}', // String
             solution : JSON.stringify(watchedAcceleration), // String
             type : 'shake' // String
         };
-        localStorage.setItem('challengeToBeSend', JSON.stringify(challenge));
-        alert('Challenged saved on LS: ' + JSON.stringify(challenge));
+        localStorage.setItem('challengeToBeSent', JSON.stringify(challenge));
         window.location = 'selectfriends.html';
         // TODO: Open send challenges view
     },
 
     onStartChallengeClick: function (){
-        alert(app.onChallengeSnapshotCaptured);
         shake.startWatchingChallengeSnapshot(app.onChallengeSnapshotCaptured);
     }
 

@@ -5,8 +5,8 @@ function BackendAccess() {
 }
 
 BackendAccess.prototype.login = function (accessToken, credentials, callback) {
-  backendAccess = this;
-  authenticationHeader = credentials.clientId + ':' + credentials.clientSecret;
+  var backendAccess = this;
+  var authenticationHeader = credentials.clientId + ':' + credentials.clientSecret;
   $.ajax({
     type: 'POST',
     url: BASE_URL + '/login/access_token',
@@ -132,7 +132,7 @@ BackendAccess.prototype.createChallenge = function (challengeData, callback) {
     data: JSON.stringify({challenge: challengeData}),
     dataType: 'json',
     headers: {
-      Authorization: 'Basic ' + authenticationHeader
+      Authorization: 'Bearer ' + this.backendToken
     }
   }).done(function (response) {
     if (response.error) {
@@ -149,7 +149,6 @@ BackendAccess.prototype.getChallenge = function (id, callback) {
   $.ajax({
     type: 'GET',
     url: BASE_URL + '/challenges/' + id,
-    data: queryData,
     dataType: 'json',
     headers: {
       Authorization: 'Bearer ' + this.backendToken

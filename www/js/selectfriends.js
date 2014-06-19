@@ -24,6 +24,7 @@
     // Application Constructor
     initialize: function () {
         this.bindEvents();
+        $('#Right').click(this.sendChallenge);
         $(this.loadFriends);
     },
 
@@ -49,7 +50,6 @@
     loadFriends: function (){
         facebook.getFriends(
             function onSuccess(friends) {
-                alert(JSON.stringify(friends));
                 var container = $('<table></table>');
                 for (var i = 0; i < friends.length; i++) {
                     app.appendFriend(friends[i], container);
@@ -105,24 +105,20 @@
 
         container.append(root);
 
-        alert('Append: ' + friend.name);
     },
 
     getSelectedFriends: function (){
         var selectedFriends = $('.selected-friend');
         var friendIds = [];
         for(var i = 0; i < selectedFriends.length; i++){
-            if(selectedFriends[i].checked){
-                friendIds.push(selectedFriends[i].value);
-            }
+            friendIds.push($(selectedFriends[i]).attr('data-facebook-id'));
         }
         return friendIds;
     },
 
     sendChallenge: function () {
         var challenge = JSON.parse(localStorage.challengeToBeSent);
-        challenge.recipients = this.getSelectedFriends();
-        alert(JSON.stringify(challenge));
+        challenge.recipients = app.getSelectedFriends();
         var backendAccesor = new BackendAccess();
         backendAccesor.createChallenge(challenge,
             function onResponse(error, challengeIds){

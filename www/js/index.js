@@ -47,7 +47,6 @@
                 navigator.notification.vibrate(1000);
             }
             );
-        alert('App ready.');
     },
 
     // Facebook Login
@@ -55,7 +54,6 @@
     // Login or auto sign-up using native Facebook integration.
     login: function (){
         //this.changeLoginImage('FacebookLogin');
-        alert('Todo bien.');
         facebook.login(
             function onLoginSuccess(){
                 var accessToken = localStorage.fbAccessToken;
@@ -72,7 +70,6 @@
                         if (error) {
                             return alert(error.message);
                         }
-                        alert('Success!');
                         facebook.getPlayerData(
                             function onPlayerDataSuccess(){
                                 window.location = 'selectfriends.html';
