@@ -56,6 +56,14 @@ img{
     position: fixed;
 }
 
+#CSidebar:active{
+    width: 20%;
+    left: 0%;
+    height: inherit;
+    position: fixed;
+    background-color: #a4cbff;
+}
+
 #SidebarIMG{
     height: 65%;
     top: 15%;
@@ -239,4 +247,17 @@ img{
 
 #FriendPhoto{
     height: 18%;
+    width: 18%;
+}
+
+.challenger-photo-td {
+    width:30%;
+}
+
+.challenger-name-td {
+    padding-left:5%;
+}
+
+.challenge-type-td {
+    padding-left:5%;
 }

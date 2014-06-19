@@ -196,6 +196,25 @@ var facebook = {
                 }
            }
         });
+    },
+
+    getChallengerName: function (challengerId, callback) {
+        var path = '/' + challengerId;
+        var accessToken = localStorage.getItem('fbAccessToken');
+        var method = 'get';
+        var params = {
+                       "access_token" : accessToken,
+                       fields : 'first_name'
+                     };
+        FB.api(path, method, params,  function(response) {
+            if (response.error) {
+                alert(JSON.stringify(response.error));
+            } else {
+                if (callback) {
+                    callback(response.first_name);
+                }
+           }
+        });
     }
 
 };

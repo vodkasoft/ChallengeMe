@@ -20,6 +20,8 @@
  var app = {
     // Application Constructor
     initialize: function () {
+        // Clear local storage
+        localStorage.clear();
         // Constants
         localStorage.setItem('appId','251768321695793');
         $('#FacebookLogin').click(this.login);

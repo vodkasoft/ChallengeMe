@@ -85,8 +85,17 @@ img{
 #CSidebar{
     width: 20%;
     left: 0%;
+    background-color: transparent;
     height: inherit;
     position: fixed;
+}
+
+#CSidebar:active{
+    width: 20%;
+    left: 0%;
+    height: inherit;
+    position: fixed;
+    background-color: #a4cbff;
 }
 
 #SidebarIMG{
@@ -115,27 +124,30 @@ img{
 }
 
 #Right{
-    width: 20%;
-    right: 0%;
-    font-family: "Roboto-Regular";
-    color: white;
     background-color: transparent;
-    font-size: 2.5em;
-    height: inherit;
+    width: 30%;
+    right: 0%;
     position: fixed;
     text-align: center;
+    height: inherit;
 }
 
 #Right:active{
-    width: 20%;
-    right: 0%;
-    font-family: "Roboto-Regular";
-    color: white;
     background-color: #a4cbff;
-    font-size: 2.5em;
-    height: inherit;
+    width: 30%;
+    right: 0%;
     position: fixed;
     text-align: center;
+    height: inherit;
+}
+
+#SendText{
+    padding-top: 2.5%;
+    font-size: 1.5em;
+    font-family: "Lobster";
+    color: white;
+    position: fixed;
+    right: 5%;
 }
 
 #CloseIMG{
@@ -199,16 +211,18 @@ img{
 }
 
 #FriendsToSelectTable td {
-    padding: 1em;
     margin-bottom: 5em;
 }
 
 #FriendPhoto{
-    height: 3em;
+    height: 100px;
+    width: 100px;
 }
 
 .friend-photo-td {
-    width: 30%;
+    text-align: center;
+    padding: 5%;
+    width: 45%;
 }
 
 .friend-name-td {
@@ -217,4 +231,5 @@ img{
 
 .selected-friend {
     background-color: #9ecc3b;
+    color: white;
 }
