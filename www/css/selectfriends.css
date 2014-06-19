@@ -125,7 +125,7 @@ img{
 
 #Right{
     background-color: transparent;
-    width: 20%;
+    width: 30%;
     right: 0%;
     position: fixed;
     text-align: center;
@@ -134,7 +134,7 @@ img{
 
 #Right:active{
     background-color: #a4cbff;
-    width: 20%;
+    width: 30%;
     right: 0%;
     position: fixed;
     text-align: center;
@@ -211,16 +211,18 @@ img{
 }
 
 #FriendsToSelectTable td {
-    padding: 1em;
     margin-bottom: 5em;
 }
 
 #FriendPhoto{
-    height: 3em;
+    height: 100px;
+    width: 100px;
 }
 
 .friend-photo-td {
-    width: 30%;
+    text-align: center;
+    padding: 5%;
+    width: 45%;
 }
 
 .friend-name-td {
@@ -229,4 +231,5 @@ img{
 
 .selected-friend {
     background-color: #9ecc3b;
+    color: white;
 }

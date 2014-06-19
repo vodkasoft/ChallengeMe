@@ -82,7 +82,7 @@
 
         var profilePictureURL = 'https://graph.facebook.com/';
         profilePictureURL +=    friend.id + '/picture?';
-        profilePictureURL +=    'heigth=100&width=100';
+        profilePictureURL +=    'heigth=200&width=200';
 
         var friendIMG = $('<img>');
         friendIMG.addClass('UserPhoto');
